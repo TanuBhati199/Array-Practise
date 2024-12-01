@@ -1,5 +1,51 @@
-//Rotated Array
-#include<iostream>
+// Rotated Array
+#include <bits/stdc++.h>
+using namespace std;
+
+class Reverse{
+    private:
+    vector<int> reversenum(vector<int> &num,int s,int l){
+       while(s<l){
+        int temp=num[s];
+        num[s]=num[l];
+        num[l]=temp;
+        s++;
+        l--;
+       }
+    };
+    
+    public:
+    vector<int> reversearr(vector<int>arr,int n){
+      int l=arr.size()-1;  
+      int s=0;
+      reversenum(arr,s,l);
+      reversenum(arr,s,n-1);
+      reversenum(arr,n,l);
+      return arr;
+    }
+};
+int main()
+{
+    int n, s;
+    cout << "enter n value";
+    cin >> n;
+    cout << "enter s value";
+    cin >> s;
+    vector<int> num(s);
+    for (int i = 0; i < s; i++)
+    {
+        cout << "enter value in num" << i + 1 << ": ";
+        cin >> num[i];
+    }
+    Reverse re;
+    vector<int> ans = re.reversearr(num, n);
+    for(int res:ans){
+        cout<<res<<" ";
+    }
+    return 0;
+}
+
+/*#include<iostream>
 #include<math.h>
 #include<algorithm>
 #include<array>
@@ -31,9 +77,7 @@ int main(){
         cout<<num<<" ";
     }
     return 0;
-}
-
-
+}*/
 
 /*#include<bits/stdc++.h>
 using namespace std;
@@ -53,7 +97,7 @@ int n=1234;
 Solution s;
 
 cout<<s.nextnum(n);
- return 0;   
+ return 0;
 }
 
 
@@ -80,7 +124,7 @@ int main(){
     a=3;
     b=3;
     Myclass m;
-    
+
     cout<<m.myfunction(a,b);
     return 0;
 }*/
